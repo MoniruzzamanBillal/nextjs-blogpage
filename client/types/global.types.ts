@@ -4,4 +4,5 @@ export type TBlogpost = {
   brief: string;
   author: string;
   slug: string;
+  createdAt: string;
 };
