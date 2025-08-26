@@ -120,3 +120,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.blogContent ul,
+.blogContent li,
+.blogContent h1,
+.blogContent ol,
+.blogContent p {
+  all: revert !important;
+  margin: 0 !important;
+  padding: revert !important;
+}
