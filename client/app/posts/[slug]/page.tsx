@@ -1,5 +1,6 @@
 "use client";
 import Wrapper from "@/components/shared/Wrapper";
+import { PostDetailSkeleton } from "@/components/ui";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useGetSingleBlogs } from "@/hooks/blog.hooks";
@@ -16,7 +17,9 @@ const PostDetail = ({ params }: PostDetailProps) => {
 
   const { data: blogData, isLoading } = useGetSingleBlogs(slug);
 
-  // console.log(blogData?.data);
+  if (isLoading) {
+    return <PostDetailSkeleton />;
+  }
 
   return (
     <div className="mainContainer min-h-screen py-3 bg-gray-100 ">
@@ -61,7 +64,7 @@ const PostDetail = ({ params }: PostDetailProps) => {
         {/* bottom button section  */}
         <div className="mt-12 text-center">
           <Link href="/">
-            <Button>Read More Posts</Button>
+            <Button>Read More Blogs</Button>
           </Link>
         </div>
       </Wrapper>
