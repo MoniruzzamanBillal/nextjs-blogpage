@@ -3,6 +3,7 @@
 import { useGetAllBlogs } from "@/hooks/blog.hooks";
 import { TBlogpost } from "@/types/global.types";
 import BlogCard from "./BlogCard";
+import BlogCardSkeleton from "./BlogCardSkeleton";
 
 const blogposts: TBlogpost[] = [
   {
@@ -68,6 +69,11 @@ const HomeBlogs = () => {
 
   return (
     <div className="grid gap-6 md:gap-8">
+      {isLoading &&
+        Array.from({ length: 4 })?.map((_, ind) => (
+          <BlogCardSkeleton key={ind} />
+        ))}
+
       {blogsData &&
         blogsData?.map((post: TBlogpost) => (
           <BlogCard key={post?._id} post={post} />
