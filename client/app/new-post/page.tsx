@@ -37,10 +37,20 @@ const AddBlog = () => {
       return;
     }
 
-    console.log("post added !!!");
+    const slug = data?.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
 
-    console.log(editorContent);
-    console.log(data);
+    const payload = {
+      slug,
+      content: editorContent,
+      author: data?.author,
+      brief: data?.brief,
+      title: data?.title,
+    };
+
+    console.log(payload);
   };
 
   return (
@@ -111,7 +121,7 @@ const AddBlog = () => {
                 )}
               </div>
 
-              {/* Draft.js Content */}
+              {/* project content  */}
               <div>
                 <Label htmlFor="content">Content</Label>
                 <div className="  " id="content">
