@@ -10,6 +10,8 @@ import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useCreateBlog } from "@/hooks/blog.hooks";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -21,14 +23,18 @@ type TPostFormInputs = {
 };
 
 const AddBlog = () => {
+  const router = useRouter();
+
   const [editorContent, setEditorContent] = useState("");
 
   const {
     register,
     handleSubmit,
-    control,
+
     formState: { errors, isSubmitting },
   } = useForm<TPostFormInputs>();
+
+  const { mutateAsync: cerateBlogFn } = useCreateBlog();
 
   // ! Handle form submission
   const handleAddPost = async (data: TPostFormInputs) => {
@@ -50,7 +56,11 @@ const AddBlog = () => {
       title: data?.title,
     };
 
-    console.log(payload);
+    const result = await cerateBlogFn(payload);
+
+    if (result?.success) {
+      router.push("/");
+    }
   };
 
   return (

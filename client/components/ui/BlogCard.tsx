@@ -17,26 +17,26 @@ const BlogCard = ({ post }: { post: TBlogpost }) => {
       <CardHeader>
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-muted-foreground">
-            By {post.author}
+            By {post?.author}
           </span>
           <span className="text-sm text-muted-foreground">
-            {format(new Date(post.createdAt), "MMMM dd,yyyy")}
+            {format(new Date(post?.createdAt as string), "MMMM dd,yyyy")}
           </span>
         </div>
         <CardTitle className="text-2xl mb-2">
           <Link
-            href={`/posts/${post.slug}`}
+            href={`/posts/${post?.slug}`}
             className="hover:text-primary transition-colors"
           >
-            {post.title}
+            {post?.title}
           </Link>
         </CardTitle>
         <CardDescription className="text-base leading-relaxed">
-          {post.brief}
+          {post?.brief}
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Link href={`/posts/${post.slug}`}>
+        <Link href={`/posts/${post?.slug}`}>
           <Button variant="outline">Read More</Button>
         </Link>
       </CardContent>
