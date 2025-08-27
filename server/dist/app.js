@@ -22,7 +22,7 @@ const router_1 = require("./app/router");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://next-js-blog-client.vercel.app"],
     credentials: true,
 }));
 app.use((0, morgan_1.default)("dev"));

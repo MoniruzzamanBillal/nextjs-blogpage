@@ -13,10 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable no-console */
-const app_1 = __importDefault(require("./app"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const app_1 = __importDefault(require("./app"));
 const config_1 = __importDefault(require("./app/config"));
-let server;
 function Main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -31,16 +30,3 @@ function Main() {
     });
 }
 Main();
-process.on("unhandledRejection", () => {
-    console.log("unhandledRejection detected , shutting down !!! ");
-    if (server) {
-        server.close(() => {
-            process.exit(1);
-        });
-    }
-    process.exit(1);
-});
-process.on("uncaughtException", () => {
-    console.log("uncaughtException detected , shutting down !!! ");
-    process.exit(1);
-});

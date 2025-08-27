@@ -65,7 +65,7 @@ const blogposts: TBlogpost[] = [
 const HomeBlogs = () => {
   const { data: blogsData, isLoading } = useGetAllBlogs();
 
-  console.log(blogsData);
+  // console.log(blogsData);
 
   return (
     <div className="grid gap-6 md:gap-8">

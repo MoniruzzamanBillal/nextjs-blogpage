@@ -64,7 +64,7 @@ const AddBlog = () => {
   };
 
   return (
-    <div className="mainContainer min-h-screen py-3 bg-gray-100 ">
+    <div className="mainContainer min-h-screen py-5 bg-gray-100 ">
       <Wrapper>
         {/* top buttom  */}
         <div className="mb-8">

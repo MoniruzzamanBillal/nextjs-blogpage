@@ -2,7 +2,8 @@ import { TBlogpost } from "@/types/global.types";
 import axios from "axios";
 import { toast } from "sonner";
 
-const baseUrl = "http://localhost:5000/api/blog";
+// const baseUrl = "http://localhost:5000/api/blog";
+const baseUrl = "https://next-js-blog-eta-seven.vercel.app/api/blog";
 
 // ! for getting all blogs
 export const getAllBlogs = async () => {
